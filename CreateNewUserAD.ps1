@@ -1,4 +1,4 @@
-# Script to Create New User in Active Dirctorythrough PowerShell 
+# Script to Create New User in Active Dirctory through PowerShell 
 
 function CreateNewUser($FirstName, $LastName , $Title , $Manager, $UsertoCopyFrom ) {
     #make username (all lowercase)
