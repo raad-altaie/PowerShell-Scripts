@@ -77,3 +77,5 @@ function CreateNewUser($FirstName, $LastName , $Title , $Manager, $UsertoCopyFro
 
 # to create a user call the function e.g.
 CreateNewUser 'FirstName' 'LastName' 'Job Title' 'MangerUsername' 'UsertoCopyFrom'
+
+
