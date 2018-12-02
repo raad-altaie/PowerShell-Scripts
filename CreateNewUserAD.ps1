@@ -86,4 +86,3 @@ function CreateNewUser($FName, $LName, $UsertoCopyFrom ) {
 # to create a user call the function e.g.
 CreateNewUser 'FirstName' 'LastName' 'UsertoCopyFrom'
 
-
