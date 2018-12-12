@@ -10,9 +10,9 @@ function DeactivateUser($UserToDeactivate, $RandomPW) {
         $UserPath = ((Get-ADUser $UserToDeactivate -Properties *).CanonicalName).tostring()
 
         #Check if user not in 'Disabled Accounts' ou then set the Description for the disable time and path that user was at 
-        if ( $UserPath -ne ('AutoAnything.local/AA Users/Disabled Accounts/'+(Get-ADUser $UserToDeactivate -Properties *).name.tostring()) ) {
+        if ( $UserPath -ne ('companyName.local/Users/Disabled Accounts/'+(Get-ADUser $UserToDeactivate -Properties *).name.tostring()) ) {
 
-            $Des = "Disabled on " + (Get-Date).tostring() + ", Moved from " + ((Get-ADUser $UserToDeactivate -Properties *).CanonicalName).tostring()
+            $Des = "Disabled on " + (Get-Date).tostring() + ", Old Path is " + ((Get-ADUser $UserToDeactivate -Properties *).CanonicalName).tostring()
 
             Set-ADUser $UserToDeactivate -Description $Des
 
@@ -20,7 +20,7 @@ function DeactivateUser($UserToDeactivate, $RandomPW) {
 
 
         #Move the user to disabled accounts OU 
-        Get-ADUser $UserToDeactivate | Move-ADObject -TargetPath 'OU=Disabled Accounts,OU=AA Users,DC=AutoAnything,DC=local'
+        Get-ADUser $UserToDeactivate | Move-ADObject -TargetPath 'OU=Disabled Accounts,OU=Users,DC=CompanyName,DC=local'
 
         write-host User: *$UserToDeactivate* has been deactivated.   
     }
